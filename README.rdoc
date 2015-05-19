@@ -1,0 +1,32 @@
+
+= ruby-amt
+
+* http://github.com/kkaempf/ruby-amt
+
+== Introduction
+
+ruby-amt provides command line access to Intel AMT features.
+
+== Requirements
+
+ruby-wbem
+
+== Quick Start
+
+You can create a gem by running `rake build`.
+
+See the testsuite for more examples. Or run rake docs.
+
+== Links
+
+=== Documentation
+
+* http://rdoc.info/projects/kkaempf/ruby-amt
+
+== License
+
+MIT
+
+== Authors
+
+* Klaus Kämpf <kkaempf@suse.de>
