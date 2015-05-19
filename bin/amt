@@ -79,8 +79,9 @@ object = klass.new client
 begin
   res = object.send cmd.to_sym
   STDERR.puts "#{target} #{cmd} failed" unless res == 0
-rescue NoMethodError
-  usage "Command '#{cmd}' not recognized"
+rescue NoMethodError => e
+  STDERR.puts e if Amt.debug
+  usage "Command '#{cmd}' not recognized in #{object}"
 rescue Exception => e
   usage "Command '#{cmd}' failed: #{e}"
 end
