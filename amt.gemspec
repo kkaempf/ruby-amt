@@ -17,7 +17,7 @@ redirection via VNC) and SOL (serial-over-lan) function of Intel AMT
 
   s.required_rubygems_version = ">= 1.3.6"
   s.add_development_dependency("yard", [">= 0.5"])
-  s.add_dependency("wbem", [">= 0.4"])
+  s.add_dependency("wbem", [">= 0.5"])
 
   s.files         = `git ls-files`.split("\n")
   s.files.reject! { |fn| fn == '.gitignore' }
