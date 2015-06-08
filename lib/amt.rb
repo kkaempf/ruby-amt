@@ -12,6 +12,7 @@ require 'rubygems'
 require 'wbem'
 
 module Amt
+  VERSION = "0.2.0"
   require "amt/version"
   require "amt/kvm"
   require "amt/sol"

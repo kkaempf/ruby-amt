@@ -17,7 +17,7 @@ def usage msg = nil
   if msg
     STDERR.puts "** Err: #{msg}"
   end
-  STDERR.puts "amt [-d] <target> <command> <uri>"
+  STDERR.puts "amt [-d] [-v] <target> <command> <uri>"
   STDERR.puts "\t<target>: sol|kvm"
   STDERR.puts "\t<command>: start|status|stop"
   STDERR.puts "Example\n\tamt sol status http://user:pass@amt.host.org"
@@ -42,6 +42,9 @@ loop do
     debug_level += 1
   when 'h', '-help'
     usage
+  when 'v', '-version'
+    puts "Version #{Amt::VERSION}"
+    exit 0
   else
     usage "Unknown option '#{target}'"
   end
@@ -66,7 +69,8 @@ end
 klass = nil
 begin
   klass = Amt.const_get(target.capitalize)
-rescue
+rescue Exception => e
+  usage "Target '#{target.capitalize}' not available: #{e}" if Amt.debug
 end
 usage "<target> parameter invalid" unless klass
 
